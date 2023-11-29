@@ -11,4 +11,5 @@ php artisan key:generate
 chmod 777 storage -R
 chmod 777 vendor -R
 chmod 777 bootstrap/cache/ -R
+php artisan migrate --seed
 apachectl -D FOREGROUND

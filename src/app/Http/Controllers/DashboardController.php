@@ -32,7 +32,7 @@ class DashboardController extends Controller
 			->whereNotNull('students.id')
 			->get()->toArray();
 		$indicators[]=$rs[0]['count'];
-		$out=array($indicators,[]);
+		$out=array($indicators,[20,10,70]);
 		//$out=[[1,2,3,4],[80,30,50]];
 		return response()->json($out);
 	}
@@ -56,9 +56,13 @@ class DashboardController extends Controller
 		foreach ($rs as $val){
 			$_[$val['dni'].'-'.$val['student']][]=$val['subject']." - ".$val['teacher']." - ".$val['credits']." Creditos";
 		}
-		foreach($_ as $key => $val){
-			$__=explode('-',$key);
-			$out[]=array($__[0],$__[1],implode("<br>",$val));
+		if (!isset($_)){
+			$out=[];
+		}else{
+			foreach($_ as $key => $val){
+				$__=explode('-',$key);
+				$out[]=array($__[0],$__[1],implode("<br>",$val));
+			}
 		}
 		return response()->json(['data'=>$out]);
 	}
