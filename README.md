@@ -19,8 +19,8 @@ apt install -y docker docker-compose git
 ## Despliegue – Deployment
 
 ```bash 
-git clone https://github.com/whohe/pruebaTecnicaPsicol
-cd pruebaTecnicaPsicol
+git clone https://github.com/whohe/UniAdmin
+cd UniAdmin
 docker-compose up -d
 ```
 ![Preview](example.gif?raw=true "Example")
